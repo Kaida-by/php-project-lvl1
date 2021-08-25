@@ -4,5 +4,14 @@
 	    "bin/brain-games"
 	],
 	"description": "test hexlet/code",
-	"license": "MIT"
+	"license": "MIT",
+	"require": {
+	    "wp-cli/php-cli-tools": "^0.11.13"
+	},
+	"autoload": {
+            "files": [
+                "src/Cli.php"
+            ]
+        }
 }
+
