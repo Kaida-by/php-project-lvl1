@@ -1,0 +1,8 @@
+{
+	"name": "hexlet/code",
+	"bin": [
+	    "bin/brain-games"
+	],
+	"description": "test hexlet/code",
+	"license": "MIT"
+}
