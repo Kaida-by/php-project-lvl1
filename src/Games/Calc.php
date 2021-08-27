@@ -9,7 +9,7 @@ function getDataCalc(): array
     $numberTwo = random_int(1, 100);
     $action = [$numberOne, $numberTwo];
     $operation = randMathOperation();
-    $data['actionQuestion'] = $numberOne . $operation . $numberTwo;
+    $data['actionQuestion'] = $numberOne . ' ' . $operation . ' ' . $numberTwo;
     $data['trueAnswer'] = trueAnswer($action, $operation);
 
     return $data;
