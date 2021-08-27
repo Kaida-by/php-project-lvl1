@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+use Brain\Games\Engine;
+
+require_once __DIR__ . '/../src/autoload.php';
+
+Engine\engine('prime');

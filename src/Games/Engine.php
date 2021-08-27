@@ -43,6 +43,12 @@ function engine(string $nameGame)
             $currentArray[$randIndex] = '..';
             $result = implode(' ', $currentArray);
             $actionQuestion = $result;
+        } elseif ($nameGame === 'prime') {
+            $textQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+            $action = [random_int(1, 100)];
+            $actionQuestion = $action[0];
+            $trueAnswer = trueAnswer($action, $nameGame);
+            $falseAnswer = '\'no\' is wrong answer ;(. Correct answer was \'yes\'. Let\'s try again, ' . $name . '!';
         }
 
         if ($i === 0) {
@@ -70,7 +76,7 @@ function engine(string $nameGame)
     }
 }
 
-function getProgression():array
+function getProgression(): array
 {
     $result = [];
     $i = 0;
@@ -99,6 +105,10 @@ function trueAnswer(array $action, string $nameGame, $operation = null)
 
     if ($nameGame === 'gcd') {
         return gmp_gcd($action[0], $action[1]);
+    }
+
+    if ($nameGame === 'prime') {
+        return gmp_prob_prime($action[0]) === 2 ? 'yes' : 'no';
     }
 
     return match ($operation) {
