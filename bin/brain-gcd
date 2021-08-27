@@ -5,4 +5,4 @@ use Brain\Games\Engine;
 
 require_once __DIR__ . '/../src/autoload.php';
 
-Engine\engine('calc');
+Engine\engine('gcd');

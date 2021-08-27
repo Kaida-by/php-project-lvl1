@@ -27,9 +27,14 @@ function engine(string $nameGame)
             $action = [$numberOne, $numberTwo];
             $operation = randMathOperation();
             $actionQuestion = $numberOne . $operation . $numberTwo;
-            $trueAnswer = (string)trueAnswer($action, $nameGame, $operation);
-        } else {
-            line('3');
+            $trueAnswer = (string) trueAnswer($action, $nameGame, $operation);
+        } elseif ($nameGame === 'gcd') {
+            $textQuestion = 'Find the greatest common divisor of given numbers.';
+            $numberOne = random_int(1, 50);
+            $numberTwo = random_int(50, 100);
+            $action = [$numberOne, $numberTwo];
+            $actionQuestion = $numberOne . ' ' . $numberTwo;
+            $trueAnswer = (string) trueAnswer($action, $nameGame);
         }
 
         if ($i === 0) {
@@ -39,7 +44,7 @@ function engine(string $nameGame)
         line('Question: ' . $actionQuestion);
         $answer = prompt('Your answer: ');
 
-        if ($nameGame === 'calc') {
+        if ($nameGame === 'calc' || $nameGame === 'gcd') {
             $falseAnswer = '\'' . $answer . '\' is wrong answer ;(. Correct answer was \'' . $trueAnswer .
                 '\'. Let\'s try again, ' . $name . '!';
         }
@@ -66,6 +71,10 @@ function trueAnswer(array $action, string $nameGame, $operation = null)
 {
     if ($nameGame === 'even') {
         return !($action[0] & 1) ? 'yes' : 'no';
+    }
+
+    if ($nameGame === 'gcd') {
+        return gmp_gcd($action[0], $action[1]);
     }
 
     return match ($operation) {
