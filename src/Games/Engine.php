@@ -35,6 +35,14 @@ function engine(string $nameGame)
             $action = [$numberOne, $numberTwo];
             $actionQuestion = $numberOne . ' ' . $numberTwo;
             $trueAnswer = (string) trueAnswer($action, $nameGame);
+        } elseif ($nameGame === 'progression') {
+            $textQuestion = 'What number is missing in the progression?';
+            $currentArray = getProgression();
+            $randIndex = random_int(0, count($currentArray));
+            $trueAnswer = (string) $currentArray[$randIndex];
+            $currentArray[$randIndex] = '..';
+            $result = implode(' ', $currentArray);
+            $actionQuestion = $result;
         }
 
         if ($i === 0) {
@@ -44,7 +52,7 @@ function engine(string $nameGame)
         line('Question: ' . $actionQuestion);
         $answer = prompt('Your answer: ');
 
-        if ($nameGame === 'calc' || $nameGame === 'gcd') {
+        if ($nameGame === 'calc' || $nameGame === 'gcd' || $nameGame === 'progression') {
             $falseAnswer = '\'' . $answer . '\' is wrong answer ;(. Correct answer was \'' . $trueAnswer .
                 '\'. Let\'s try again, ' . $name . '!';
         }
@@ -60,6 +68,22 @@ function engine(string $nameGame)
     if ($i === 3) {
         line('Congratulations, %s!', $name);
     }
+}
+
+function getProgression():array
+{
+    $result = [];
+    $i = 0;
+    $current = 0;
+    $randStep = random_int(1, 10);
+    $randLength = random_int(5, 10);
+
+    while ($i < $randLength) {
+        $result[] = $current += $randStep;
+        $i++;
+    }
+
+    return $result;
 }
 
 function randMathOperation(): string
