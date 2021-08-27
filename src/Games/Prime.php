@@ -16,10 +16,8 @@ function trueAnswer(array $action): string
 {
     $highestIntegralSquareRoot = floor(sqrt($action[0]));
 
-    for ($i = 2; $i <= $highestIntegralSquareRoot; $i++)
-    {
-        if ($action[0] % $i === 0)
-        {
+    for ($i = 2; $i <= $highestIntegralSquareRoot; $i++) {
+        if ($action[0] % $i === 0) {
             return 'no';
         }
     }

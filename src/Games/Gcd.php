@@ -16,11 +16,11 @@ function getDataGcd(): array
 
 function trueAnswer(array $action): string
 {
-    while(true) {
-        if($action[0] === $action[1]) {
+    while (true) {
+        if ($action[0] === $action[1]) {
             return $action[1];
         }
-        if($action[0] > $action[1]) {
+        if ($action[0] > $action[1]) {
             $action[0] -= $action[1];
         } else {
             $action[1] -= $action[0];
