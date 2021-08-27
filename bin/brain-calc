@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Engine;
+use Brain\Engine;
 
 require_once __DIR__ . '/../src/autoload.php';
 
