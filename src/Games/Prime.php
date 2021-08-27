@@ -14,5 +14,15 @@ function getDataPrime(): array
 
 function trueAnswer(array $action): string
 {
-    return gmp_prob_prime($action[0]) === 2 ? 'yes' : 'no';
+    $highestIntegralSquareRoot = floor(sqrt($action[0]));
+
+    for ($i = 2; $i <= $highestIntegralSquareRoot; $i++)
+    {
+        if ($action[0] % $i === 0)
+        {
+            return 'no';
+        }
+    }
+
+    return 'yes';
 }
