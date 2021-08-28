@@ -15,5 +15,5 @@ function getDataEven(): array
 
 function trueAnswer(array $action): bool
 {
-    return !($action[0] & 1);
+    return (bool) !($action[0] & 1);
 }
