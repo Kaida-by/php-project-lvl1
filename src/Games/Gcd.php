@@ -4,6 +4,7 @@ namespace Brain\Games\Gcd;
 
 function getDataGcd(): array
 {
+    $data = [];
     $data['textQuestion'] = 'Find the greatest common divisor of given numbers.';
     $numberOne = random_int(1, 50);
     $numberTwo = random_int(50, 100);

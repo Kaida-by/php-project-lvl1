@@ -4,6 +4,7 @@ namespace Brain\Games\Progression;
 
 function getDataProgression(): array
 {
+    $data = [];
     $data['textQuestion'] = 'What number is missing in the progression?';
     $currentArray = getProgression();
     $randIndex = random_int(0, count($currentArray) - 1);

@@ -10,14 +10,15 @@ use function Brain\Games\Prime\getDataPrime;
 use function cli\line;
 use function cli\prompt;
 
-function engine(string $nameGame)
+function engine(string $nameGame): void
 {
     $data = [];
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
+    $i = 0;
 
-    for ($i = 0; $i < 3; $i++) {
+    while ($i < 3) {
         if ($nameGame === 'even') {
             $data = getDataEven();
         } elseif ($nameGame === 'calc') {
@@ -46,6 +47,7 @@ function engine(string $nameGame)
             line($data['falseAnswer']);
             break;
         }
+        $i++;
     }
 
     if ($i === 3) {
